@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="entry">
+      <UniqueIdentifier>{95400223-f7dd-4d53-8b36-f17c0e185d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="window">
+      <UniqueIdentifier>{c0cc8f54-bdb6-46e9-a2f5-9e2e9c5480cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="debug">
+      <UniqueIdentifier>{ff1951dc-bcc1-40d7-b5aa-b6b7bdc9f19c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\entry\entry.cpp">
+      <Filter>entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\debug\logsystem.cpp">
+      <Filter>debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\debug\assertsystem.cpp">
+      <Filter>debug</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\window\window.h">
+      <Filter>window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\debug\debugsystem.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\debug\logsystem.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\debug\assertsystem.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
