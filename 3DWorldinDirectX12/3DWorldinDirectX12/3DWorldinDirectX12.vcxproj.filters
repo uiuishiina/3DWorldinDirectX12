@@ -22,6 +22,9 @@
     <Filter Include="debug">
       <UniqueIdentifier>{ff1951dc-bcc1-40d7-b5aa-b6b7bdc9f19c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="drawsystem">
+      <UniqueIdentifier>{86bb34f9-174c-4c38-8276-125560c00cd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\entry\entry.cpp">
@@ -32,6 +35,15 @@
     </ClCompile>
     <ClCompile Include="..\debug\assertsystem.cpp">
       <Filter>debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\window\window.cpp">
+      <Filter>window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drawsystem\Device.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drawsystem\drawsystem.cpp">
+      <Filter>drawsystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +58,12 @@
     </ClInclude>
     <ClInclude Include="..\debug\assertsystem.h">
       <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\Device.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\drawsystem.h">
+      <Filter>drawsystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

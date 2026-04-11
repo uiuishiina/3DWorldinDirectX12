@@ -126,12 +126,17 @@
   <ItemGroup>
     <ClCompile Include="..\debug\assertsystem.cpp" />
     <ClCompile Include="..\debug\logsystem.cpp" />
+    <ClCompile Include="..\drawsystem\Device.cpp" />
+    <ClCompile Include="..\drawsystem\drawsystem.cpp" />
     <ClCompile Include="..\entry\entry.cpp" />
+    <ClCompile Include="..\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\debug\assertsystem.h" />
     <ClInclude Include="..\debug\debugsystem.h" />
     <ClInclude Include="..\debug\logsystem.h" />
+    <ClInclude Include="..\drawsystem\Device.h" />
+    <ClInclude Include="..\drawsystem\drawsystem.h" />
     <ClInclude Include="..\window\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

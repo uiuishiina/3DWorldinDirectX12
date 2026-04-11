@@ -1,6 +1,7 @@
 #pragma once
 
-#define ASSERT(expr) AssertSystem::AssertBreak((expr),#expr,__FUNCSIG__,__FILE__, __LINE__)
+#define ASSERT(expr) AssertSystem::AssertBreak((expr),#expr,__func__,__FILE__, __LINE__)
+#define HRASSERT(expr) AssertSystem::HRAssertBreak((expr),#expr,__func__,__FILE__, __LINE__)
 
 class AssertSystem final
 {
@@ -8,4 +9,6 @@ class AssertSystem final
 	~AssertSystem() = default;
 public:
 	static void AssertBreak(bool value, const char* expr, const char* func, const char* file, int line);
+
+	static void HRAssertBreak(long value, const char* expr, const char* func, const char* file, int line);
 };

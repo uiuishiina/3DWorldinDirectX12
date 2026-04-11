@@ -1,11 +1,11 @@
 #pragma once
 #include<utility>
 
-struct HINSTANCE_;
-using HINSTANCE = HINSTANCE_*;
+struct HINSTANCE__;
+using HINSTANCE = HINSTANCE__*;
 
-struct HWND_;
-using HWND = HWND_*;
+struct HWND__;
+using HWND = HWND__*;
 
 class window final
 {
@@ -20,5 +20,11 @@ public:
 		return instance_;
 	}
 
-	[[nodiscard]] bool CreateWindow(HINSTANCE hInstance);
+	[[nodiscard]] bool CreateMainWindow(HINSTANCE hInstance, int width, int height);
+
+	[[nodiscard]] HWND GetHandle()const noexcept;
+
+	[[nodiscard]] std::pair<int, int> GetSize()const noexcept;
+
+	[[nodiscard]] bool MessageLoop()noexcept;
 };
