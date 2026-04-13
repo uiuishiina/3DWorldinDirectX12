@@ -23,6 +23,15 @@
 //デバッグエラーログマクロ
 #define DEBUG_LOG_ERROR(...)\
 	LOG_ERROR(__VA_ARGS__);
+#define DEBUG_LINELOG(expr)\
+	do{\
+		std::string str;\
+		for(int i = 0; i < expr; i++){\
+			str += "=";\
+		}\
+		LOG_UNKWOUN(str);\
+	}while(0)
+	
 
 //ASSERTマクロ
 #define DEBUG_ASSERT(expr) ASSERT(expr)

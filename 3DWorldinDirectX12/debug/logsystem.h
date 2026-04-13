@@ -3,10 +3,11 @@
 #include <sstream>
 
 //通常ログマクロ
-#define LOG(...)	LogSystem::Log(LogLevel::Log,__VA_ARGS__)
-#define LOG_INFO(...)	LogSystem::Log(LogLevel::Info,__VA_ARGS__)
+#define LOG(...)			LogSystem::Log(LogLevel::Log,__VA_ARGS__)
+#define LOG_INFO(...)		LogSystem::Log(LogLevel::Info,__VA_ARGS__)
 #define LOG_WARNING(...)	LogSystem::Log(LogLevel::Warning,__VA_ARGS__)
-#define LOG_ERROR(...)	LogSystem::Log(LogLevel::Error,__VA_ARGS__)
+#define LOG_ERROR(...)		LogSystem::Log(LogLevel::Error,__VA_ARGS__)
+#define LOG_UNKWOUN(...)	LogSystem::Log(LogLevel::Unknown,__VA_ARGS__)
 
 //特殊ログ
 //改行なしログマクロ
@@ -24,7 +25,8 @@ enum class LogLevel {
 	Log,
 	Info,
 	Warning,
-	Error
+	Error,
+	Unknown
 };
 
 static std::string LevelToString(LogLevel level)noexcept {
@@ -43,7 +45,7 @@ static std::string LevelToString(LogLevel level)noexcept {
 		return "[ Error ]";
 		break;
 	default:
-		return "[Unknown]";
+		return "";
 		break;
 	}
 };

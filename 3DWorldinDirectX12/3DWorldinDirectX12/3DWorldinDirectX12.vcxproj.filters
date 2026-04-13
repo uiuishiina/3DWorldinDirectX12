@@ -48,6 +48,12 @@
     <ClCompile Include="..\drawsystem\CommandQueue.cpp">
       <Filter>drawsystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\drawsystem\CommandAllocator.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drawsystem\CommandList.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">

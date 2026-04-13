@@ -10,5 +10,5 @@ public:
 
 	[[nodiscard]] bool Create();
 
-	[[nodiscard]] ID3D12CommandQueue* Get()const noexcept;
+	[[nodiscard]] ID3D12CommandQueue* GetQueue()const noexcept;
 };

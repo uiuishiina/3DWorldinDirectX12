@@ -17,7 +17,7 @@
     return true;
 }
 
-[[nodiscard]] ID3D12CommandQueue* CommandQueue::Get()const noexcept {
+[[nodiscard]] ID3D12CommandQueue* CommandQueue::GetQueue()const noexcept {
     DEBUG_ASSERT(Queue_);
     return Queue_.Get();
 }
