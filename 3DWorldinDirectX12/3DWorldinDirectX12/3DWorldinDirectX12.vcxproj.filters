@@ -45,6 +45,9 @@
     <ClCompile Include="..\drawsystem\drawsystem.cpp">
       <Filter>drawsystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\drawsystem\CommandQueue.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -63,6 +66,15 @@
       <Filter>drawsystem</Filter>
     </ClInclude>
     <ClInclude Include="..\drawsystem\drawsystem.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\CommandQueue.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\CommandAllocator.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\CommandList.h">
       <Filter>drawsystem</Filter>
     </ClInclude>
   </ItemGroup>

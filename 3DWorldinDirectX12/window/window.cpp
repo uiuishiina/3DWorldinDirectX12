@@ -42,6 +42,7 @@ static LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lP
     auto wnd = reinterpret_cast<window*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
     switch (msg) {
     case WM_DESTROY:
+        DEBUG_LOG("CALLBACK DESTROY WindowProc");
         PostQuitMessage(0);
         return 0;
     case WM_CLOSE:

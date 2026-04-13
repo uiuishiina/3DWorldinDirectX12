@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="..\debug\assertsystem.cpp" />
     <ClCompile Include="..\debug\logsystem.cpp" />
+    <ClCompile Include="..\drawsystem\CommandQueue.cpp" />
     <ClCompile Include="..\drawsystem\Device.cpp" />
     <ClCompile Include="..\drawsystem\drawsystem.cpp" />
     <ClCompile Include="..\entry\entry.cpp" />
@@ -135,6 +136,9 @@
     <ClInclude Include="..\debug\assertsystem.h" />
     <ClInclude Include="..\debug\debugsystem.h" />
     <ClInclude Include="..\debug\logsystem.h" />
+    <ClInclude Include="..\drawsystem\CommandAllocator.h" />
+    <ClInclude Include="..\drawsystem\CommandList.h" />
+    <ClInclude Include="..\drawsystem\CommandQueue.h" />
     <ClInclude Include="..\drawsystem\Device.h" />
     <ClInclude Include="..\drawsystem\drawsystem.h" />
     <ClInclude Include="..\window\window.h" />

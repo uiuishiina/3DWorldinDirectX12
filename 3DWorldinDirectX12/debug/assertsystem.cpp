@@ -25,7 +25,7 @@ void AssertSystem::AssertBreak(bool value, const char* expr, const char* func, c
 	}
 }
 
-void AssertSystem::HRAssertBreak(long value, const char* expr, const char* func, const char* file, int line) {
+void AssertSystem::HRAssert(long value, const char* expr, const char* func, const char* file, int line) {
 	if (IsError(static_cast<HRESULT>(value))) {
 		LOG_LINE_BREAK(1);
 		LOG("===================================================================================================");
@@ -34,6 +34,5 @@ void AssertSystem::HRAssertBreak(long value, const char* expr, const char* func,
 		LOG("[ Func ]", func, "[ File ]", file, " : ", line);
 		LOG("===================================================================================================");
 		LOG_LINE_BREAK(1);
-		std::abort();
 	}
 }
