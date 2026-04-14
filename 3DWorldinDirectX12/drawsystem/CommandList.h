@@ -8,4 +8,6 @@ public:
 	[[nodiscard]] bool Create(ID3D12CommandAllocator* Allocator);
 
 	[[nodiscard]] ID3D12GraphicsCommandList* GetList()const noexcept;
+
+	void Reset(ID3D12CommandAllocator* allocator)noexcept;
 };

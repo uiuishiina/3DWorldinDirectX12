@@ -12,8 +12,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		auto [w, h] = window::Instance().GetSize();
 		d.Initialize(window::Instance().GetHandle(), w, h);
 		while (window::Instance().MessageLoop()) {
-
+			d.Rendering();
 		}
+		d.EndRendering();
 	}
 	return 0;
 }

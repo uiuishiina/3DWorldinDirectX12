@@ -14,12 +14,22 @@ static bool IsError(T&& value) {
 
 void AssertSystem::AssertBreak(bool value, const char* expr, const char* func, const char* file, int line) {
 	if (IsError(value)) {
-
 		LOG_LINE_BREAK(1);
-		LOG("===================================================================================================");
-		LOG("[ ASSERT FAILED POINT ]", expr);
-		LOG("[ Func ]", func, "[ File ]", file, " : ", line);
-		LOG("===================================================================================================");
+		LOG_UNKWOUN("===================================================================================================");
+		LOG_UNKWOUN("[ ASSERT FAILED POINT ]", expr);
+		LOG_UNKWOUN("[ Func ]", func, "[ File ]", file, " : ", line);
+		LOG_UNKWOUN("===================================================================================================");
+		LOG_LINE_BREAK(1);
+		std::abort();
+	}
+}
+void AssertSystem::AssertBreak(void* value, const char* expr, const char* func, const char* file, int line) {
+	if (IsError(value)) {
+		LOG_LINE_BREAK(1);
+		LOG_UNKWOUN("===================================================================================================");
+		LOG_UNKWOUN("[ ASSERT FAILED POINT ]", expr, "=", value);
+		LOG_UNKWOUN("[ Func ]", func, "[ File ]", file, " : ", line);
+		LOG_UNKWOUN("===================================================================================================");
 		LOG_LINE_BREAK(1);
 		std::abort();
 	}
@@ -28,11 +38,11 @@ void AssertSystem::AssertBreak(bool value, const char* expr, const char* func, c
 void AssertSystem::HRAssert(long value, const char* expr, const char* func, const char* file, int line) {
 	if (IsError(static_cast<HRESULT>(value))) {
 		LOG_LINE_BREAK(1);
-		LOG("===================================================================================================");
-		LOG("[ ASSERT FAILED POINT ]", expr);
+		LOG_UNKWOUN("===================================================================================================");
+		LOG_UNKWOUN("[ ASSERT FAILED POINT ]", expr);
 		LOG_HR(value);
-		LOG("[ Func ]", func, "[ File ]", file, " : ", line);
-		LOG("===================================================================================================");
+		LOG_UNKWOUN("[ Func ]", func, "[ File ]", file, " : ", line);
+		LOG_UNKWOUN("===================================================================================================");
 		LOG_LINE_BREAK(1);
 	}
 }

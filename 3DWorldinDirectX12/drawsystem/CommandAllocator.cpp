@@ -5,7 +5,7 @@
 
     Allocator_.resize(BufferSize);
     for (int i = 0; i < BufferSize; i++) {
-        const auto hr = Device::Instance().GetDevice()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&Allocator_[0]));
+        const auto hr = Device::Instance().GetDevice()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&Allocator_[i]));
         DEBUG_HR_ASSERT(hr);
         if (FAILED(hr)) {
             return false;
@@ -20,4 +20,11 @@
     DEBUG_ASSERT(Allocator_.size() > BufferIndex);
     DEBUG_ASSERT(Allocator_[BufferIndex]);
     return Allocator_[BufferIndex].Get();
+}
+
+void CommandAllocator::Reset(const int BufferIndex)noexcept {
+    DEBUG_ASSERT(!Allocator_.empty());
+    DEBUG_ASSERT(Allocator_.size() > BufferIndex);
+    DEBUG_ASSERT(Allocator_[BufferIndex]);
+    Allocator_[BufferIndex]->Reset();
 }

@@ -9,6 +9,7 @@ class AssertSystem final
 	~AssertSystem() = default;
 public:
 	static void AssertBreak(bool value, const char* expr, const char* func, const char* file, int line);
+	static void AssertBreak(void* value, const char* expr, const char* func, const char* file, int line);
 
 	static void HRAssert(long value, const char* expr, const char* func, const char* file, int line);
 };

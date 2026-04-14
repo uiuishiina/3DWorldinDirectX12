@@ -16,6 +16,9 @@ public:
 
 	[[nodiscard]] bool Initialize(HWND HWND, int width, int height);
 
+	void Rendering();
+
+	void EndRendering();
 private:
 	class Impl;
 	std::unique_ptr<Impl> impl_;

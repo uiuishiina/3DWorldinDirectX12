@@ -16,3 +16,8 @@
     DEBUG_ASSERT(List_);
     return List_.Get();
 }
+
+void CommandList::Reset(ID3D12CommandAllocator* allocator)noexcept {
+    DEBUG_ASSERT(List_);
+    List_->Reset(allocator, nullptr);
+}
