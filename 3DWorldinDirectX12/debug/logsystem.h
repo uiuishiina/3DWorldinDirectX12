@@ -17,7 +17,11 @@
 //改行マクロ
 #define LOG_LINE_BREAK(times)	LogSystem::LogLineBreak(times)
 //変数変換マクロ
-#define CHANGE_VALUE(X) #X, "=", (X)
+#define CHANGE_VALUE(expr) LogSystem::Change_Value(#expr,expr)
+#define CHANGE_VALUE_1(a) LogSystem::Change_Value(#a, a)
+#define CHANGE_VALUE_2(a,b) CHANGE_VALUE_1(a); CHANGE_VALUE_1(b)
+#define CHANGE_VALUE_3(a,b,c) CHANGE_VALUE_2(a,b); CHANGE_VALUE_1(c)
+#define CHANGE_VALUE_4(a,b,c,d) CHANGE_VALUE_3(a,b,c); CHANGE_VALUE_1(d)
 //HRESULT変換ログマクロ
 #define LOG_HR(expr) LogSystem::HRLog(expr)
 
@@ -87,4 +91,9 @@ public:
 	}
 
 	static void LogLineBreak(int times = 1)noexcept;
+
+	template<typename T>
+	static void Change_Value(const std::string& name, T&& value) {
+		LOG(name, "=", value);
+	}
 };

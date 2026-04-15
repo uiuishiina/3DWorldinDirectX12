@@ -7,10 +7,9 @@
 #define DEBUG_CHECK_VALUE(X)\
 	 do { \
         LOG_LINE_BREAK(1); \
-        CALLER_LOG(CHANGE_VALUE(X)); \
+        CHANGE_VALUE(X); \
         LOG_LINE_BREAK(1); \
     } while(0)
-
 //デバッグログ出力マクロ
 #define DEBUG_LOG(...)\
 	LOG(__VA_ARGS__);

@@ -8,6 +8,7 @@
 #include"SwapChain.h"
 #include"RenderTarget.h"
 #include"Fence.h"
+#include"CompileShader.h"
 
 //各種作成関数チェックマクロ
 #define CHECK_CREATE_CLEAR(expr)\
@@ -29,7 +30,7 @@ class DrawSystem::Impl final
 	SwapChain			SwapChain_{};
 	RenderTarget		Target_{};
 	Fence				Fence_{};
-	
+	CompileShader		Vshader_{};
 
 	const int BufferSize_ = 2;
 	std::vector<int> FrameFenceValue_{};
@@ -50,6 +51,7 @@ public:
 		CHECK_CREATE_CLEAR(SwapChain_.Create(Queue_.GetQueue(), HWND, width, height, BufferSize_));
 		CHECK_CREATE_CLEAR(Target_.Create(SwapChain_.Get(), BufferSize_));
 		CHECK_CREATE_CLEAR(Fence_.Create());
+		CHECK_CREATE_CLEAR(Vshader_.Create("../drawsystem/shader/VertexShader.hlsl","main","vs_5_0"));
 
 		FrameFenceValue_.resize(BufferSize_);
 		DEBUG_LINELOG(100);
@@ -126,6 +128,7 @@ DrawSystem::~DrawSystem() = default;
 
 [[nodiscard]] bool DrawSystem::Initialize(HWND HWND, int width, int height) {
 
+	CHANGE_VALUE_3(HWND, width, height);
 	impl_ = std::make_unique<Impl>();
 
 	if (!impl_->Initialize(HWND, width, height)) {

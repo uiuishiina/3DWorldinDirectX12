@@ -25,6 +25,9 @@
     <Filter Include="drawsystem">
       <UniqueIdentifier>{86bb34f9-174c-4c38-8276-125560c00cd3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="drawsystem\shader">
+      <UniqueIdentifier>{d2be3eb7-8d87-4b85-8bcb-a26b6e2e97b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\entry\entry.cpp">
@@ -67,6 +70,9 @@
       <Filter>drawsystem</Filter>
     </ClCompile>
     <ClCompile Include="..\drawsystem\Fence.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drawsystem\CompileShader.cpp">
       <Filter>drawsystem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,5 +122,13 @@
     <ClInclude Include="..\drawsystem\Fence.h">
       <Filter>drawsystem</Filter>
     </ClInclude>
+    <ClInclude Include="..\drawsystem\CompileShader.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\drawsystem\shader\VertexShader.hlsl">
+      <Filter>drawsystem\shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
