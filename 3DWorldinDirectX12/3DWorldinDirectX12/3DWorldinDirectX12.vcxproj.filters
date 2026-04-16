@@ -75,6 +75,18 @@
     <ClCompile Include="..\drawsystem\CompileShader.cpp">
       <Filter>drawsystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\drawsystem\RootSignature.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drawsystem\PiplineState.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drawsystem\Polygon.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\drawsystem\FrameUploadAllocator.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -123,6 +135,24 @@
       <Filter>drawsystem</Filter>
     </ClInclude>
     <ClInclude Include="..\drawsystem\CompileShader.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\RootSignature.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\PiplineState.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\Polygon.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\ConstantBuffer.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\FrameUploadAllocator.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\drawsystem\Resource.h">
       <Filter>drawsystem</Filter>
     </ClInclude>
   </ItemGroup>

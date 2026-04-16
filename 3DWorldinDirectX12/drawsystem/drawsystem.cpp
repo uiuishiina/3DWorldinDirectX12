@@ -9,6 +9,9 @@
 #include"RenderTarget.h"
 #include"Fence.h"
 #include"CompileShader.h"
+#include"RootSignature.h"
+#include"PiplineState.h"
+#include"Polygon.h"
 
 //各種作成関数チェックマクロ
 #define CHECK_CREATE_CLEAR(expr)\
@@ -29,12 +32,28 @@ class DrawSystem::Impl final
 	CommandList			List_{};
 	SwapChain			SwapChain_{};
 	RenderTarget		Target_{};
-	Fence				Fence_{};
 	CompileShader		Vshader_{};
+	CompileShader		Pshader_{};
+	RootSignature		Root_{};
+	PiplineState		pipline_{};
+	PolygonBase			polygon_{};
 
 	const int BufferSize_ = 2;
-	std::vector<int> FrameFenceValue_{};
-	int NextFenceValue_{};
+	std::vector<UINT64> FrameFenceValue_{};
+
+	struct windowdata
+	{
+		HWND hwnd;
+		int width;
+		int height;
+
+		windowdata() = default;
+		windowdata(HWND HWND_, int w, int h) :
+			hwnd(HWND_), width(w), height(h) {
+		};
+	};
+
+	windowdata WData_{};
 public:
 	Impl() = default;
 	~Impl() = default;
@@ -50,11 +69,16 @@ public:
 
 		CHECK_CREATE_CLEAR(SwapChain_.Create(Queue_.GetQueue(), HWND, width, height, BufferSize_));
 		CHECK_CREATE_CLEAR(Target_.Create(SwapChain_.Get(), BufferSize_));
-		CHECK_CREATE_CLEAR(Fence_.Create());
+		CHECK_CREATE_CLEAR(FenceManager::Instance().Initialize());
 		CHECK_CREATE_CLEAR(Vshader_.Create("../drawsystem/shader/VertexShader.hlsl","main","vs_5_0"));
+		CHECK_CREATE_CLEAR(Pshader_.Create("../drawsystem/shader/VertexShader.hlsl","ps","ps_5_0"));
+		CHECK_CREATE_CLEAR(Root_.Create());
+		CHECK_CREATE_CLEAR(pipline_.Create(Vshader_.Get(), Pshader_.Get(), Root_.Get()));
+		CHECK_CREATE_CLEAR(polygon_.Create());
 
 		FrameFenceValue_.resize(BufferSize_);
 		DEBUG_LINELOG(100);
+		WData_ = { HWND ,width ,height };
 		return true;
 	}
 
@@ -63,7 +87,7 @@ public:
 		const auto backBufferIndex = SwapChain_.Get()->GetCurrentBackBufferIndex();
 
 		if (FrameFenceValue_[backBufferIndex] != 0) {
-			Fence_.WaitEvent(FrameFenceValue_[backBufferIndex]);
+			FenceManager::Instance().WaitEvent(FrameFenceValue_[backBufferIndex]);
 		}
 		return backBufferIndex;
 	}
@@ -82,8 +106,34 @@ public:
 		D3D12_CPU_DESCRIPTOR_HANDLE handles[] = { Target_.GetHandle(BackBufferIndex) };
 		List_.GetList()->OMSetRenderTargets(1, handles, false, nullptr);
 
-		const float clearColor[] = { 1.0f, 1.0f, 0.0f, 1.0f };
+		const float clearColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		List_.GetList()->ClearRenderTargetView(handles[0], clearColor, 0, nullptr);
+
+		List_.GetList()->SetPipelineState(pipline_.Get());
+		// ルートシグネチャの設定
+		List_.GetList()->SetGraphicsRootSignature(Root_.Get());
+
+		const auto w = WData_.width;
+		const auto h = WData_.height;
+		D3D12_VIEWPORT viewport{};
+		viewport.TopLeftX = 0.0f;
+		viewport.TopLeftY = 0.0f;
+		viewport.Width = static_cast<float>(w);
+		viewport.Height = static_cast<float>(h);
+		viewport.MinDepth = 0.0f;
+		viewport.MaxDepth = 1.0f;
+		List_.GetList()->RSSetViewports(1, &viewport);
+
+		// シザー矩形の設定
+		D3D12_RECT scissorRect{};
+		scissorRect.left = 0;
+		scissorRect.top = 0;
+		scissorRect.right = w;
+		scissorRect.bottom = h;
+		List_.GetList()->RSSetScissorRects(1, &scissorRect);
+
+		// ポリゴンの描画
+		polygon_.Draw(List_.GetList());
 
 		auto rtToP = ResourceBarrier(Target_.Get(BackBufferIndex), D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);
 		List_.GetList()->ResourceBarrier(1, &rtToP);
@@ -95,9 +145,7 @@ public:
 
 		SwapChain_.Get()->Present(1, 0);
 
-		Queue_.GetQueue()->Signal(Fence_.Get(), NextFenceValue_);
-		FrameFenceValue_[BackBufferIndex] = NextFenceValue_;
-		NextFenceValue_++;
+		FrameFenceValue_[BackBufferIndex] = FenceManager::Instance().Signal(Queue_.GetQueue());
 	}
 
 	//リソースバリア変更関数
@@ -115,10 +163,9 @@ public:
 
 	//描画ループ終了待機関数
 	void WaitForGPUIdle() {
-		Queue_.GetQueue()->Signal(Fence_.Get(), NextFenceValue_);
-
-		Fence_.WaitEvent(NextFenceValue_);
-		NextFenceValue_++;
+		auto a = FenceManager::Instance().Signal(Queue_.GetQueue());
+		DEBUG_CHECK_VALUE(a);
+		FenceManager::Instance().WaitEvent(a);
 	}
 };
 
@@ -155,4 +202,3 @@ void DrawSystem::EndRendering() {
 	DEBUG_LINELOG(100);
 }
 //---------------------------------------------------------------------------------------------------------
-

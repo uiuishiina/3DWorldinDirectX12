@@ -134,9 +134,13 @@
     <ClCompile Include="..\drawsystem\Device.cpp" />
     <ClCompile Include="..\drawsystem\drawsystem.cpp" />
     <ClCompile Include="..\drawsystem\Fence.cpp" />
+    <ClCompile Include="..\drawsystem\PiplineState.cpp" />
+    <ClCompile Include="..\drawsystem\Polygon.cpp" />
     <ClCompile Include="..\drawsystem\RenderTarget.cpp" />
+    <ClCompile Include="..\drawsystem\RootSignature.cpp" />
     <ClCompile Include="..\drawsystem\RTVDescriptorHeap.cpp" />
     <ClCompile Include="..\drawsystem\SwapChain.cpp" />
+    <ClCompile Include="..\drawsystem\FrameUploadAllocator.cpp" />
     <ClCompile Include="..\entry\entry.cpp" />
     <ClCompile Include="..\window\window.cpp" />
   </ItemGroup>
@@ -148,14 +152,20 @@
     <ClInclude Include="..\drawsystem\CommandList.h" />
     <ClInclude Include="..\drawsystem\CommandQueue.h" />
     <ClInclude Include="..\drawsystem\CompileShader.h" />
+    <ClInclude Include="..\drawsystem\ConstantBuffer.h" />
     <ClInclude Include="..\drawsystem\DescriptorHeap.h" />
     <ClInclude Include="..\drawsystem\DescriptorHeapManager.h" />
     <ClInclude Include="..\drawsystem\Device.h" />
     <ClInclude Include="..\drawsystem\drawsystem.h" />
     <ClInclude Include="..\drawsystem\Fence.h" />
+    <ClInclude Include="..\drawsystem\PiplineState.h" />
+    <ClInclude Include="..\drawsystem\Polygon.h" />
     <ClInclude Include="..\drawsystem\RenderTarget.h" />
+    <ClInclude Include="..\drawsystem\Resource.h" />
+    <ClInclude Include="..\drawsystem\RootSignature.h" />
     <ClInclude Include="..\drawsystem\RTVHeapManager.h" />
     <ClInclude Include="..\drawsystem\SwapChain.h" />
+    <ClInclude Include="..\drawsystem\FrameUploadAllocator.h" />
     <ClInclude Include="..\window\window.h" />
   </ItemGroup>
   <ItemGroup>

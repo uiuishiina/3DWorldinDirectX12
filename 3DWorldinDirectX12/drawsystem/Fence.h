@@ -1,17 +1,29 @@
 #pragma once
 #include"Device.h"
+#include<memory>
 
-class Fence final
+class Fence;
+class FenceManager final
 {
-	Microsoft::WRL::ComPtr<ID3D12Fence> Fence_{};
-	HANDLE WaitEventHandle_{};
+	FenceManager();
+	~FenceManager();
+	
+	UINT64 NextFenceValue_{};
+	std::unique_ptr<Fence> Fence_{};
+
 public:
-	Fence() = default;
-	~Fence() = default;
+	static FenceManager& Instance()noexcept {
+		static FenceManager ins;
+		return ins;
+	}
 
-	[[nodiscard]] bool Create();
+	[[nodiscard]] bool Initialize();
 
-	[[nodiscard]] ID3D12Fence* Get()const noexcept;
+	[[nodiscard]] UINT64 Signal(ID3D12CommandQueue* Queue)noexcept;
 
-	void WaitEvent(UINT64 fenceValue)const noexcept;
+	void WaitEvent(UINT64 fenceValue)noexcept;
+
+	[[nodiscard]] ID3D12Fence* GetFence()const noexcept;
+
+	[[nodiscard]] UINT64 GetCompletedValue()const noexcept;
 };
