@@ -12,6 +12,7 @@
 #include"RootSignature.h"
 #include"PiplineState.h"
 #include"Polygon.h"
+#include"FrameUploadAllocator.h"
 
 //各種作成関数チェックマクロ
 #define CHECK_CREATE_CLEAR(expr)\
@@ -75,6 +76,8 @@ public:
 		CHECK_CREATE_CLEAR(Root_.Create());
 		CHECK_CREATE_CLEAR(pipline_.Create(Vshader_.Get(), Pshader_.Get(), Root_.Get()));
 		CHECK_CREATE_CLEAR(polygon_.Create());
+		CHECK_CREATE_CLEAR(FrameUploadAllocator::Instance().CreationInstructions(4));
+		
 
 		FrameFenceValue_.resize(BufferSize_);
 		DEBUG_LINELOG(100);
@@ -131,6 +134,12 @@ public:
 		scissorRect.right = w;
 		scissorRect.bottom = h;
 		List_.GetList()->RSSetScissorRects(1, &scissorRect);
+
+		FrameUploadAllocator::Instance().ResetFrameBuffer(FenceManager::Instance().GetCompletedValue());
+
+		auto heap = FrameUploadAllocator::Instance().AllocateHeapInstructions();
+		
+		FrameUploadAllocator::Instance().Signal(FenceManager::Instance().Signal(Queue_.GetQueue()));
 
 		// ポリゴンの描画
 		polygon_.Draw(List_.GetList());

@@ -27,9 +27,16 @@ class FrameUploadAllocator final
 	std::unique_ptr<FrameResource>	UpLoadResource_{};
 	std::unique_ptr<FrameBasedLinearAllocator> LinearAllocator_{};
 public:
-	[[nodiscard]] bool CreationInstructions(int HeapSize,int FrameBufferSize);
+	static FrameUploadAllocator& Instance()noexcept {
+		static FrameUploadAllocator ins;
+		return ins;
+	}
 
-	[[nodiscard]] std::optional<AllocateHeap> AllocateHeapInstructions(int FrameBufferIndex);
+	[[nodiscard]] bool CreationInstructions(int HeapSize);
 
-	void ResetFrameBuffer(int FrameBufferIndex);
+	[[nodiscard]] std::optional<AllocateHeap> AllocateHeapInstructions();
+
+	void Signal(UINT64 signal);
+
+	void ResetFrameBuffer(UINT64 signal);
 };

@@ -1,5 +1,7 @@
 #include"DescriptorHeap.h"
+#include<queue>
 #include"FrameUploadAllocator.h"
+#include"Fence.h"
 #include"../debug/debugsystem.h"
 
 FrameUploadAllocator::FrameUploadAllocator() = default;
@@ -12,7 +14,13 @@ class FrameBasedLinearAllocator final
 	size_t TailIndex_{};		//使用している最後尾のインデックス
 	size_t UsedSize_{};			//使用しているヒープサイズ
 
-	std::vector<size_t> ByFrameBuffer_{};	//フレーム別の使用中最後尾インデックス
+	struct ByFenceTailIndex
+	{
+		UINT64 FenceSignal_{};
+		size_t Tail_{};
+	};
+
+	std::queue<ByFenceTailIndex> ByFrameBuffer_{};	//fence別の使用中最後尾インデックス
 
 	bool IsFull()const noexcept {
 		return UsedSize_ == HeapMaxSize_;
@@ -23,33 +31,39 @@ class FrameBasedLinearAllocator final
 public:
 	FrameBasedLinearAllocator() = default;
 	~FrameBasedLinearAllocator() = default;
-	[[nodiscard]] bool Initialize(int HeapSize, int FrameBufferSize) {
-		if (!ByFrameBuffer_.empty()) {
-			return false;
-		}
-
-		ByFrameBuffer_.resize(FrameBufferSize);
+	[[nodiscard]] bool Initialize(int HeapSize) {
+		
 		HeapMaxSize_ = HeapSize;
 		UsableEndIndex_ = HeapSize - 1;
 		return true;
 	}
 
 	//使用済みにプッシュ
-	std::optional<size_t> GetHeapIndex(int FrameBufferIndex) {
+	std::optional<size_t> GetHeapIndex() {
 		if (IsFull()) {
 			return std::nullopt;
 		}
-		ByFrameBuffer_[FrameBufferIndex] = TailIndex_;
 		const auto index = TailIndex_;
 		TailIndex_ = (TailIndex_ + 1) % HeapMaxSize_;
 		UsedSize_++;
 		return index;
 	}
 
-	//使用済みから外す
-	void ReturnHeapIndex(int FrameBufferIndex) {
-		UsableEndIndex_ = ByFrameBuffer_[FrameBufferIndex];
+	void PushSignal(UINT64 signal)noexcept {
+		ByFenceTailIndex index = { signal,TailIndex_ };
+		ByFrameBuffer_.push(index);
+	}
 
+	//使用済みから外す
+	void ReturnHeapIndex(UINT64 signal) {
+		if (ByFrameBuffer_.empty()) {
+			return;
+		}
+		const auto index = ByFrameBuffer_.front();
+		ByFrameBuffer_.pop();
+
+		FenceManager::Instance().WaitEvent(index.FenceSignal_);
+		UsableEndIndex_ = index.Tail_;
 		if (TailIndex_ >= UsableEndIndex_) {
 			UsedSize_ = TailIndex_ - UsableEndIndex_;
 		}
@@ -66,20 +80,20 @@ class FrameResource final
 
 //----------------------------------------------------------------------------------------
 
-[[nodiscard]] bool FrameUploadAllocator::CreationInstructions(int HeapSize,int FrameBufferSize) {
+[[nodiscard]] bool FrameUploadAllocator::CreationInstructions(int HeapSize) {
 	if (UpLoadHeap_) {
 		DEBUG_LOG_WARNING("Already Creation UpLoadHeap");
 		return false;
 	}
 
 	UpLoadHeap_ = std::make_unique<DescriptorHeap>();
-	if (!UpLoadHeap_->Create(D3D12_DESCRIPTOR_HEAP_TYPE_RTV, HeapSize, true)) {
+	if (!UpLoadHeap_->Create(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, HeapSize, true)) {
 		DEBUG_LOG_ERROR("UpLoadHeap Creation Failed");
 		return false;
 	}
 
 	LinearAllocator_ = std::make_unique<FrameBasedLinearAllocator>();
-	if (!LinearAllocator_->Initialize(HeapSize, FrameBufferSize)) {
+	if (!LinearAllocator_->Initialize(HeapSize)) {
 		DEBUG_LOG_ERROR("RingBuffer_ Creation Failed");
 		return false;
 	}
@@ -87,11 +101,11 @@ class FrameResource final
 	return true;
 }
 
-[[nodiscard]] std::optional<AllocateHeap> FrameUploadAllocator::AllocateHeapInstructions(int FrameBufferIndex) {
+[[nodiscard]] std::optional<AllocateHeap> FrameUploadAllocator::AllocateHeapInstructions() {
 	DEBUG_ASSERT(UpLoadHeap_.get());
 	DEBUG_ASSERT(LinearAllocator_.get());
 
-	const auto index = LinearAllocator_->GetHeapIndex(FrameBufferIndex);
+	const auto index = LinearAllocator_->GetHeapIndex();
 	if (!index.has_value()) {
 		return std::nullopt;
 	}
@@ -108,9 +122,16 @@ class FrameResource final
 	return allocate;
 }
 
-void FrameUploadAllocator::ResetFrameBuffer(int FrameBufferIndex) {
+void FrameUploadAllocator::Signal(UINT64 signal) {
 	DEBUG_ASSERT(UpLoadHeap_.get());
 	DEBUG_ASSERT(LinearAllocator_.get());
 
-	LinearAllocator_->ReturnHeapIndex(FrameBufferIndex);
+	LinearAllocator_->PushSignal(signal);
+}
+
+void FrameUploadAllocator::ResetFrameBuffer(UINT64 signal) {
+	DEBUG_ASSERT(UpLoadHeap_.get());
+	DEBUG_ASSERT(LinearAllocator_.get());
+
+	LinearAllocator_->ReturnHeapIndex(signal);
 }
