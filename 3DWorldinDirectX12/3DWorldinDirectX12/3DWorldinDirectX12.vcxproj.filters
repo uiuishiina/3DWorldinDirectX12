@@ -87,6 +87,9 @@
     <ClCompile Include="..\drawsystem\FrameUploadAllocator.cpp">
       <Filter>drawsystem</Filter>
     </ClCompile>
+    <ClCompile Include="FreeList.cpp">
+      <Filter>drawsystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -153,6 +156,9 @@
       <Filter>drawsystem</Filter>
     </ClInclude>
     <ClInclude Include="..\drawsystem\Resource.h">
+      <Filter>drawsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeList.h">
       <Filter>drawsystem</Filter>
     </ClInclude>
   </ItemGroup>

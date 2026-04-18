@@ -143,6 +143,7 @@
     <ClCompile Include="..\drawsystem\FrameUploadAllocator.cpp" />
     <ClCompile Include="..\entry\entry.cpp" />
     <ClCompile Include="..\window\window.cpp" />
+    <ClCompile Include="FreeList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\debug\assertsystem.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="..\drawsystem\SwapChain.h" />
     <ClInclude Include="..\drawsystem\FrameUploadAllocator.h" />
     <ClInclude Include="..\window\window.h" />
+    <ClInclude Include="FreeList.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\drawsystem\shader\VertexShader.hlsl">
