@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="3DWorldDirectX12/3DWorldDirectX12.vcxproj" Id="d1f0547a-3ddc-4b28-95c4-b566b8399f8a" />
+</Solution>
