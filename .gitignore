@@ -39,3 +39,5 @@
 
 # debug information files
 *.dwo
+*.ipch
+3DWorldDirectX12/.vs/

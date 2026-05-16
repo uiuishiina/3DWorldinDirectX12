@@ -19,6 +19,9 @@
     <Filter Include="entry">
       <UniqueIdentifier>{e65efe68-a3db-400c-8c4c-e714fe064c0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX">
+      <UniqueIdentifier>{759a1a57-459b-4a4b-84e9-ca0e2f582300}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\entry\entry.cpp">
@@ -30,6 +33,12 @@
     <ClCompile Include="..\entry\Application.cpp">
       <Filter>entry</Filter>
     </ClCompile>
+    <ClCompile Include="..\DirectX\DXGI.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX\Device.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -37,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="..\entry\Application.h">
       <Filter>entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\DXGI.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\addfiles\d3d12.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\Device.h">
+      <Filter>DirectX</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
