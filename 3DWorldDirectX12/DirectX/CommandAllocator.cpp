@@ -30,3 +30,14 @@
 [[nodiscard]] ID3D12CommandAllocator* CommandAllocator::get_allocator(size_t index)const noexcept {
 	return allocator_[index].Get();
 }
+
+//----------------------------------------------------------------------------------------------------
+
+//@brief	=== コマンドアロケーターリセット関数 ===
+//@param	リセットするコマンドアロケーターのインデックス番号
+void CommandAllocator::reset_allocator(size_t index) {
+	const auto hr = allocator_[index]->Reset();
+	if (FAILED(hr)) {
+		//失敗した時のログ処理用
+	}
+}

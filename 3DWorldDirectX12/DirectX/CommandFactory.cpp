@@ -48,3 +48,25 @@ std::optional<std::vector<Microsoft::WRL::ComPtr<ID3D12CommandAllocator>>> Comma
     return allocator;
 }
 
+//----------------------------------------------------------------------------------------------------
+
+//@brief	=== コマンドリスト作成関数 ===
+//@param	allocator	タイプ一致したコマンドアロケーター
+//@param	type	コマンドタイプ
+//@return	作成したコマンドリスト
+std::optional<Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>> CommandFactory::create_command_list(
+    ID3D12CommandAllocator* allocator, D3D12_COMMAND_LIST_TYPE type) {
+
+    //コマンドリストポインター
+    Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList>   list{};
+
+    //コマンドリスト作成
+    const auto hr = Device::Instance().get_device()->CreateCommandList(0, type, allocator, nullptr, IID_PPV_ARGS(&list));
+    if (FAILED(hr)) {
+        return std::nullopt;
+    }
+
+    //コマンドリストを閉じる
+    list->Close();
+    return list;
+}

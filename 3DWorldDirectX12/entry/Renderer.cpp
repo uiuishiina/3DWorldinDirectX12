@@ -2,6 +2,7 @@
 #include"../DirectX/Device.h"
 #include"../DirectX/CommandQueue.h"
 #include"../DirectX/CommandAllocator.h"
+#include"../DirectX/CommandList.h"
 
 #include"Renderer.h"
 
@@ -30,7 +31,7 @@ Renderer::~Renderer() = default;
 
 //@brief	=== 描画機能初期化 ===
 //@return	初期化の成否
-[[nodiscard]] bool Renderer::initialize_renderer(HWND hwnd_) {
+[[nodiscard]] bool Renderer::initialize_renderer(HWND hwnd_, int width, int height) {
 
     //DXGIクラス初期化
 	dxgi_ = std::make_unique<DXGI>();
@@ -46,6 +47,10 @@ Renderer::~Renderer() = default;
     //CommandAllocatorクラス作成
     allocator_ = std::make_unique<CommandAllocator>();
     Check_Failed(allocator_->initialize_allocator(Direct_type, frame_buffer_size));
+
+    //Commandlistクラス作成
+    list_ = std::make_unique<CommandList>();
+    Check_Failed(list_->initialize_list(allocator_->get_allocator(0), Direct_type));
 
 	return true;
 }

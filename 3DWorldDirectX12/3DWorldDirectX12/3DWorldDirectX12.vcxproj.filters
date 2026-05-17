@@ -51,6 +51,18 @@
     <ClCompile Include="..\DirectX\CommandAllocator.cpp">
       <Filter>DirectX</Filter>
     </ClCompile>
+    <ClCompile Include="..\DirectX\CommandList.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX\DescriptorHeapFactory.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX\SwapChain.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX\RenderTarget.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -60,9 +72,6 @@
       <Filter>entry</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectX\DXGI.h">
-      <Filter>DirectX</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DirectX\addfiles\d3d12.h">
       <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectX\Device.h">
@@ -78,6 +87,18 @@
       <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectX\CommandAllocator.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\DescriptorHeapFactory.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\CommandList.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\SwapChain.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\RenderTarget.h">
       <Filter>DirectX</Filter>
     </ClInclude>
   </ItemGroup>

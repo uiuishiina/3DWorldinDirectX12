@@ -143,21 +143,28 @@
   <ItemGroup>
     <ClCompile Include="..\DirectX\CommandAllocator.cpp" />
     <ClCompile Include="..\DirectX\CommandFactory.cpp" />
+    <ClCompile Include="..\DirectX\CommandList.cpp" />
     <ClCompile Include="..\DirectX\CommandQueue.cpp" />
+    <ClCompile Include="..\DirectX\DescriptorHeapFactory.cpp" />
     <ClCompile Include="..\DirectX\Device.cpp" />
     <ClCompile Include="..\DirectX\DXGI.cpp" />
+    <ClCompile Include="..\DirectX\RenderTarget.cpp" />
+    <ClCompile Include="..\DirectX\SwapChain.cpp" />
     <ClCompile Include="..\entry\Application.cpp" />
     <ClCompile Include="..\entry\entry.cpp" />
     <ClCompile Include="..\entry\Renderer.cpp" />
     <ClCompile Include="..\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\DirectX\addfiles\d3d12.h" />
     <ClInclude Include="..\DirectX\CommandAllocator.h" />
     <ClInclude Include="..\DirectX\CommandFactory.h" />
+    <ClInclude Include="..\DirectX\CommandList.h" />
     <ClInclude Include="..\DirectX\CommandQueue.h" />
+    <ClInclude Include="..\DirectX\DescriptorHeapFactory.h" />
     <ClInclude Include="..\DirectX\Device.h" />
     <ClInclude Include="..\DirectX\DXGI.h" />
+    <ClInclude Include="..\DirectX\RenderTarget.h" />
+    <ClInclude Include="..\DirectX\SwapChain.h" />
     <ClInclude Include="..\entry\Application.h" />
     <ClInclude Include="..\entry\Renderer.h" />
     <ClInclude Include="..\window\window.h" />

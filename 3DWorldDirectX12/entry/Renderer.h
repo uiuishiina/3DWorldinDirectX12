@@ -8,6 +8,7 @@ class DXGI;
 class Device;
 class CommandQueue;
 class CommandAllocator;
+class CommandList;
 
 //@brief	/=== 描画機能クラス ===/
 class Renderer final
@@ -22,7 +23,7 @@ public:
 
 	//@brief	=== 描画機能初期化 ===
 	//@return	初期化の成否
-	[[nodiscard]] bool initialize_renderer(HWND hwnd_);
+	[[nodiscard]] bool initialize_renderer(HWND hwnd_, int width = 1920, int height = 1080);
 
 	//@brief	=== 描画機能の更新 ===
 	void update_renderer();
@@ -36,6 +37,7 @@ private:
 	std::unique_ptr<DXGI>				dxgi_{};		//DXGIクラスインスタンス
 	std::unique_ptr<CommandQueue>		queue_{};		//CommandQueueクラスインスタンス
 	std::unique_ptr<CommandAllocator>	allocator_{};	//CommandAllocatorクラスインスタンス
+	std::unique_ptr<CommandList>		list_{};		//CommandListクラスインスタンス
 
 	//@brief	=== 描画機能の終了処理 ===
 	void end_renderer();
