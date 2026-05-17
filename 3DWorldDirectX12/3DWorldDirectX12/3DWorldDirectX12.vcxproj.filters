@@ -39,6 +39,18 @@
     <ClCompile Include="..\DirectX\Device.cpp">
       <Filter>DirectX</Filter>
     </ClCompile>
+    <ClCompile Include="..\entry\Renderer.cpp">
+      <Filter>entry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX\CommandFactory.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX\CommandQueue.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX\CommandAllocator.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -54,6 +66,18 @@
       <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectX\Device.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\entry\Renderer.h">
+      <Filter>entry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\CommandFactory.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\CommandQueue.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\CommandAllocator.h">
       <Filter>DirectX</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,3 +1,9 @@
-C:\Users\shiin\source\3DWorldinDirectX12\3DWorldDirectX12\entry\Application.cpp;C:\Users\shiin\source\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Application.obj
-C:\Users\shiin\source\3DWorldinDirectX12\3DWorldDirectX12\entry\entry.cpp;C:\Users\shiin\source\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\entry.obj
-C:\Users\shiin\source\3DWorldinDirectX12\3DWorldDirectX12\window\window.cpp;C:\Users\shiin\source\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\window.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\CommandAllocator.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\CommandAllocator.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\CommandFactory.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\CommandFactory.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\CommandQueue.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\CommandQueue.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\Device.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Device.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\DXGI.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\DXGI.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\entry\Application.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Application.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\entry\entry.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\entry.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\entry\Renderer.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Renderer.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\window\window.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\window.obj

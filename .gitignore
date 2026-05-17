@@ -40,4 +40,10 @@
 # debug information files
 *.dwo
 *.ipch
-3DWorldDirectX12/.vs/
+
+# Project
+.vs/
+*.vcxproj.user
+x64/
+x86/
+Win32/

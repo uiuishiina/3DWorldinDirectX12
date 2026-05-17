@@ -16,7 +16,7 @@ public:
 
 	//@brief	===  DXGIFactory取得関数  ===
 	//@return	DXGIFactoryポインター
-	[[nodsicard]] IDXGIFactory6* get_factory()const noexcept;
+	[[nodiscard]] IDXGIFactory6* get_factory()const noexcept;
 
 	//@brief	===  DXGIAdaptor取得関数  ===
 	//@return	DXGIAdaptorポインター

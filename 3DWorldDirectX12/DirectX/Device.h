@@ -4,12 +4,13 @@
 #include"addfiles/d3dx12.h"
 #include<wrl/client.h>
 
+//@brief	/=== Deviceクラス ===/
 class Device final
 {
 public:
 	//----------------------------------------------------------------------------------------------------
 	
-	//@brief	=== Deviceインスタンス取得関数 ===
+	//@brief	=== Deviceシングルトンインスタンス取得関数 ===
 	static Device& Instance()noexcept {
 		static Device instance;
 		return instance;
@@ -27,7 +28,11 @@ public:
 private:
 	//----------------------------------------------------------------------------------------------------
 
-	Microsoft::WRL::ComPtr<ID3D12Device> device_;
+	Microsoft::WRL::ComPtr<ID3D12Device> device_;	//Device
+
+	//シングルトンにするため private
+	Device() = default;
+	~Device() = default;
 
 	//@brief	=== Device選定関数 ===
 	//@return	作成したデバイス

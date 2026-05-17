@@ -3,7 +3,7 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int) {
 	Application App;
-	if (!App.initalize_App(hInstance)) {
+	if (!App.initialize_App(hInstance)) {
 		return -1;
 	}
 	App.run_App();

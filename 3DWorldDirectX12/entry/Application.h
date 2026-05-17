@@ -1,13 +1,24 @@
 #pragma once
 #include"../window/window.h"
+#include"Renderer.h"
 
 class Application final
 {
-	window window_{};
-
-	[[nodiscard]] bool message_loop();
 public:
-	[[nodiscard]] bool initalize_App(HINSTANCE hInstance);
+	//----------------------------------------------------------------------------------------------------
+
+	[[nodiscard]] bool initialize_App(HINSTANCE hInstance);
 
 	void run_App();
+
+	//----------------------------------------------------------------------------------------------------
+private:
+	//----------------------------------------------------------------------------------------------------
+
+	window window_{};
+	Renderer renderer_{};
+
+	[[nodiscard]] bool message_loop();
+
+	//----------------------------------------------------------------------------------------------------
 };
