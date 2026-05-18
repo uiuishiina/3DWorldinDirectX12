@@ -63,6 +63,9 @@
     <ClCompile Include="..\DirectX\RenderTarget.cpp">
       <Filter>DirectX</Filter>
     </ClCompile>
+    <ClCompile Include="..\DirectX\Fence.cpp">
+      <Filter>DirectX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -99,6 +102,9 @@
       <Filter>DirectX</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectX\RenderTarget.h">
+      <Filter>DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX\Fence.h">
       <Filter>DirectX</Filter>
     </ClInclude>
   </ItemGroup>

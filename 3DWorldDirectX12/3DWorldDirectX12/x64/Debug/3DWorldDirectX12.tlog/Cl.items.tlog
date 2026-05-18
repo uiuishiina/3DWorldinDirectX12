@@ -5,6 +5,9 @@ B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\CommandQueue.cpp;B:
 B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\DescriptorHeapFactory.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\DescriptorHeapFactory.obj
 B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\Device.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Device.obj
 B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\DXGI.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\DXGI.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\Fence.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Fence.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\RenderTarget.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\RenderTarget.obj
+B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\DirectX\SwapChain.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\SwapChain.obj
 B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\entry\Application.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Application.obj
 B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\entry\entry.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\entry.obj
 B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\entry\Renderer.cpp;B:\Visual Studio\3DWorldinDirectX12\3DWorldDirectX12\3DWorldDirectX12\x64\Debug\Renderer.obj

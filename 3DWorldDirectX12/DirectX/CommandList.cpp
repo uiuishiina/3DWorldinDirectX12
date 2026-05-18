@@ -29,3 +29,11 @@
 [[nodiscard]] ID3D12GraphicsCommandList* CommandList::get_list()const noexcept {
 	return list_.Get();
 }
+
+//----------------------------------------------------------------------------------------------------
+
+//@brief	=== コマンドリストリセット関数 ===
+//@param	allocator	タイプ一致したコマンドアロケーター
+void CommandList::reset_list(ID3D12CommandAllocator* allocator) {
+	list_->Reset(allocator, nullptr);
+}

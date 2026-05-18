@@ -24,9 +24,9 @@ public:
 
 	//@brief	=== スワップチェーン取得関数 ===
 	//@return	スワップチェーンのポインター
-	[[nodiscard]] IDXGISwapChain3* get_swap_chain()const noexcept;
+	[[nodiscard]] IDXGISwapChain4* get_swap_chain()const noexcept;
 
 	//----------------------------------------------------------------------------------------------------
 private:
-	Microsoft::WRL::ComPtr<IDXGISwapChain3> swap_chain_{};	//スワップチェーン
+	Microsoft::WRL::ComPtr<IDXGISwapChain4> swap_chain_{};	//スワップチェーン
 };

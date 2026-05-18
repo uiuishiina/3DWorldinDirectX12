@@ -16,7 +16,7 @@
     DXGI_SWAP_CHAIN_DESC1 desc{};
     desc.Width = width;
     desc.Height = height;
-    desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM; //Windows互換がBRGAなためこちらに合わせることにする
+    desc.Format = DXGI_FORMAT_B8G8R8A8_UNORM; //Windows互換がBRGAなためこちらに合わせることにする
     desc.Stereo = FALSE;
     desc.SampleDesc.Count = 1;
     desc.SampleDesc.Quality = 0;
@@ -47,6 +47,6 @@
 
 //@brief	=== スワップチェーン取得関数 ===
 //@return	スワップチェーンのポインター
-[[nodiscard]] IDXGISwapChain3* SwapChain::get_swap_chain()const noexcept {
+[[nodiscard]] IDXGISwapChain4* SwapChain::get_swap_chain()const noexcept {
     return swap_chain_.Get();
 }

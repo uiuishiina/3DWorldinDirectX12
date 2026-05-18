@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\DirectX\\DescriptorHeapFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|solutionrelative:DirectX\\DescriptorHeapFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|solutionrelative:entry\\Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|solutionrelative:entry\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D1F0547A-3DDC-4B28-95C4-B566B8399F8A}|3DWorldDirectX12\\3DWorldDirectX12.vcxproj|solutionrelative:entry\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DescriptorHeapFactory.cpp",
-              "DocumentMoniker": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\DirectX\\DescriptorHeapFactory.cpp",
-              "RelativeDocumentMoniker": "DirectX\\DescriptorHeapFactory.cpp",
-              "ToolTip": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\DirectX\\DescriptorHeapFactory.cpp",
-              "RelativeToolTip": "DirectX\\DescriptorHeapFactory.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Application.cpp",
+              "DocumentMoniker": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Application.cpp",
+              "RelativeDocumentMoniker": "entry\\Application.cpp",
+              "ToolTip": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Application.cpp",
+              "RelativeToolTip": "entry\\Application.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-17T08:33:12.659Z",
+              "WhenOpened": "2026-05-18T03:15:53.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Renderer.h",
+              "DocumentMoniker": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Renderer.h",
+              "RelativeDocumentMoniker": "entry\\Renderer.h",
+              "ToolTip": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Renderer.h",
+              "RelativeToolTip": "entry\\Renderer.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-17T12:49:37.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Renderer.cpp",
+              "DocumentMoniker": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Renderer.cpp",
+              "RelativeDocumentMoniker": "entry\\Renderer.cpp",
+              "ToolTip": "B:\\Visual Studio\\3DWorldinDirectX12\\3DWorldDirectX12\\entry\\Renderer.cpp",
+              "RelativeToolTip": "entry\\Renderer.cpp",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAywIUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-17T12:49:12.314Z",
               "EditorCaption": ""
             }
           ]

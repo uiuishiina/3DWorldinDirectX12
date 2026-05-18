@@ -77,5 +77,5 @@
 //@param	index	取得したいインデックス番号
 //@return	オフセット済みのレンダーターゲット
 [[nodiscard]] ID3D12Resource* RenderTarget::get_render_target(size_t index) const noexcept {
-    render_targets_[index].Get();
+    return render_targets_[index].Get();
 }

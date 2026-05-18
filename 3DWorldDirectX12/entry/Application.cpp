@@ -19,8 +19,9 @@
 
 void Application::run_App() {
 	while (message_loop()) {
-
+        renderer_.update_renderer();
 	}
+    renderer_.end_renderer();
 }
 
 //----------------------------------------------------------------------------------------------------
