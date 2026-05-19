@@ -149,7 +149,10 @@
     <ClCompile Include="..\DirectX\Device.cpp" />
     <ClCompile Include="..\DirectX\DXGI.cpp" />
     <ClCompile Include="..\DirectX\Fence.cpp" />
+    <ClCompile Include="..\DirectX\Polygon.cpp" />
     <ClCompile Include="..\DirectX\RenderTarget.cpp" />
+    <ClCompile Include="..\DirectX\ResourceFactory.cpp" />
+    <ClCompile Include="..\DirectX\ShaderContainer.cpp" />
     <ClCompile Include="..\DirectX\SwapChain.cpp" />
     <ClCompile Include="..\entry\Application.cpp" />
     <ClCompile Include="..\entry\entry.cpp" />
@@ -165,7 +168,10 @@
     <ClInclude Include="..\DirectX\Device.h" />
     <ClInclude Include="..\DirectX\DXGI.h" />
     <ClInclude Include="..\DirectX\Fence.h" />
+    <ClInclude Include="..\DirectX\Polygon.h" />
     <ClInclude Include="..\DirectX\RenderTarget.h" />
+    <ClInclude Include="..\DirectX\ResourceFactory.h" />
+    <ClInclude Include="..\DirectX\ShaderContainer.h" />
     <ClInclude Include="..\DirectX\SwapChain.h" />
     <ClInclude Include="..\entry\Application.h" />
     <ClInclude Include="..\entry\Renderer.h" />
